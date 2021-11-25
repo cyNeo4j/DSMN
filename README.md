@@ -1,7 +1,7 @@
 # DSMN.github.io
 ## Discovering life’s directed metabolic (sub)paths to interpret biochemical markers
 
-Welcome to the DirectedSmallMoleculesNetwork(DSMN) extended documentation.
+Welcome to the DirectedSmallMoleculesNetwork(DSMN) extended documentation. View the website [here](https://cyneo4j.github.io/DSMN/) .
 
 You can find all the documents, scripts [here](https://github.com/mkutmon/DirectedSmallMoleculesNetwork).
 
