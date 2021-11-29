@@ -1,4 +1,5 @@
-Welcome to the DirectedSmallMoleculesNetwork(DSMN) extended documentation.
+Welcome to the Directed Small Molecules Network (DSMN) extended documentation.
+The workflow is used to create the DSMN and retrieve a metabolic subnetwork.
 
 ![](./workflow1.svg)
 <img src="./images/logos/Figure1_workflowDSMN.svg">
