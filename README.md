@@ -4,9 +4,9 @@
 Welcome to the DirectedSmallMoleculesNetwork(DSMN) extended documentation. View the website [here](https://cyneo4j.github.io/DSMN/) .
 
 Minimum System Requirements:
-- Neo4j 3.5.x
-- Cytoscape 3.9.x (automatically comes with a Java 11 download)
-- CyNeo4j 2.x
+- Neo4j [3.5.x](https://neo4j.com/download-center/#community)
+- Cytoscape [3.9.x](https://cytoscape.org/download.html) (automatically comes with a Java 11 download)
+- CyNeo4j [2.x](https://github.com/cyNeo4j/cyNeo4j/releases)
 
 You can find all the documents, scripts [here](https://github.com/mkutmon/DirectedSmallMoleculesNetwork).
 
