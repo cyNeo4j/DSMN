@@ -1,31 +1,43 @@
-Note: This documentation was written for Neo4j version: community-3.5.7 .
+Note: This documentation was written for Neo4j version: community-3.5.x .
 
 Download Neo4j (for free) [here](https://neo4j.com/download-center/#community).
 The download on Windows machines is quite straightforward, for Linux see [here](https://neo4j.com/docs/operations-manual/current/installation/linux/).
 
 # Run Neo4j on Windows:
 - Most likely, your computer will create a shortcut on your desktop.
-- Double click the icon, ans press the start button.
+- Double click the icon, and press the start button.
 
 # Run Neo4j on Linux 
 (read the README.txt for updated instructions, when using a different version):
 - On your computer, locate the location where you've downloaded Neo4j.
 - Open up your terminal, and navigate to this location.
 - Type "./bin/neo4j console" and hit enter to start.
-- Shutdown the server by typing Ctrl-C in the console.
+- Shutdown the server by typing Ctrl+C in the console.
 
 # Use Neo4j as Docker
 - See [here](https://neo4j.com/developer/docker-run-neo4j/)
 
 # Load pre-existing database
+
+## Data Download
+Download a zipped version of the Neo4j DSMN database [here](add URL).
+
+Unzip the file called 'DSMN_*releaseDate*.graph.db' after downloading.
+
 ## Windows
 - Start up the Neo4j instance
 - Select the correct database location folder, and click on “start” 
 - After a few seconds the status bar will turn from red to green and displays the message: “Neo4j is ready…”
-## Linux
-tba
+- If you want to work from the command line in Windows, please see the original [Neo4j documentation for Windows](https://neo4j.com/docs/operations-manual/current/installation/windows/) .
 
-# Windows+Linux: visualise and interact with data
+## Linux
+- Move the 'DSMN_*releaseDate*.graph.db' folder to the following location: /path/to/neo4j/data/databases/
+- If a folder called 'graph.db' already exists, delete this folder.
+- Rename the folder called 'DSMN_*releaseDate*.graph.db' to 'graph.db' .
+- See the **Run Neo4j on Linux** steps above, to start the database.
+- Note: Our approach has not been tested on a Mac, however the steps provided above for Linux should suffice.
+
+# Windows + Linux: visualise and interact with data
 - To see your Neo4j data, open http://localhost:7474/ in an (internet)browser.
 - To see which data is loaded, click on the database icon (Top left corner, green in image below).
 ![image](https://user-images.githubusercontent.com/26277832/89410021-47ffe000-d723-11ea-97d2-9f522fd706f9.png)
