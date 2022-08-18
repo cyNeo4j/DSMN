@@ -7,7 +7,7 @@
 1. Install Docker Desktop for your specific Operating System (Windows, Mac, Linux):
 follow the instructions [here](https://docs.docker.com/get-docker/)
 
-2.Download the docker image with DSMN data [here](add link):
+2. Download the docker image with DSMN data [here](add link):
 
 Windows+Mac:
 TBA
