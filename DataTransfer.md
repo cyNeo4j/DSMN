@@ -1,3 +1,7 @@
+The Neo4j data model is constructed in the following format:
+
+![image](https://user-images.githubusercontent.com/26277832/192289296-f2012576-3198-42bc-a775-494f6aa7e565.png)
+
 Class 3 consist out of 7 individual steps, marked as A-G.
 Please execute these classes in this order.
 
