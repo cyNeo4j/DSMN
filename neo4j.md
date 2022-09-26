@@ -20,22 +20,40 @@ The download on Windows machines is quite straightforward, for Linux see [here](
 # Load pre-existing database
 
 ## Data Download
-Download a zipped version of the Neo4j DSMN database [here](add URL).
+Find a copy of the graph.db file [here](https://doi.org/10.5281/zenodo.7113243) and **unzip** the file.
 
 Unzip the file called 'DSMN_*releaseDate*.graph.db' after downloading.
 
-## Windows
+### Windows
+(Note: you can also use the command line for the steps listed below; see section '3.2 Linux' for more detailed instructions or the  [Neo4j documentation for Windows](https://neo4j.com/docs/operations-manual/current/installation/windows/) ).
 - Start up the Neo4j instance
+- For first time users: you can see a user interface of Neo4j in your internetbrowser by adding this location in the search bar: http://localhost:7474/ (see section '4. Visualise and interact with data' for more details). Login the first time with the username 'neo4j' and password 'neo4j'; after this you will be prompted to submit a personal password. For next usages (also in Cytoscape with the CyNeo4j app), you will use the username 'neo4j', and the personal password you picked.
+- Find the location on your computer where you downloaded the graph.db file.
 - Select the correct database location folder, and click on “start” 
 - After a few seconds the status bar will turn from red to green and displays the message: “Neo4j is ready…”
-- If you want to work from the command line in Windows, please see the original [Neo4j documentation for Windows](https://neo4j.com/docs/operations-manual/current/installation/windows/) .
+- If you want to work from the command line in Windows, please see the original.
 
-## Linux
-- Move the 'DSMN_*releaseDate*.graph.db' folder to the following location: /path/to/neo4j/data/databases/
-- If a folder called 'graph.db' already exists, delete this folder.
-- Rename the folder called 'DSMN_*releaseDate*.graph.db' to 'graph.db' .
-- See the **Run Neo4j on Linux** steps above, to start the database.
-- Note: Our approach has not been tested on a Mac, however the steps provided above for Linux should suffice.
+### Linux
+For first time users, first start your neo4j instance:
+```shell
+cd PATH/TO/NEO4J
+./bin/neo4j console
+```
+
+Then, view the user interface of Neo4j in your internetbrowser by adding this location in the search bar: http://localhost:7474/ . Login the first time with the username 'neo4j' and password 'neo4j'; after this you will be prompted to submit a personal password. For next usages (also in Cytoscape with the CyNeo4j app), you will use the username 'neo4j', and the personal password you picked.
+
+After the initial setup (setting your personal password), you can follow the following instructions:
+```shell
+cd PATH/TO/NEO4J/data/databases
+rm -r graph.db
+cp -r /PATH/TO/DOWNLOADED_DATA/DSMN_MONTHYEAR.graph.db/graph.db/ /PATH/TO/NEO4J/data/databases/
+cd ../..
+./bin/neo4j console
+```
+Open the remote interface (hhtp://localhost:7474) and login with your personal password.
+
+### Mac/Apple:
+Our approach has not been tested on a Mac, however the steps provided above for Linux should suffice. Consult the [Neo4j macOS](https://neo4j.com/docs/operations-manual/current/installation/osx/) installation guidelines for additional information.
 
 # Windows + Linux: visualise and interact with data
 - To see your Neo4j data, open http://localhost:7474/ in an (internet)browser.
