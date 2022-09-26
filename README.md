@@ -73,10 +73,16 @@ From the Cytoscape App store [here]() or from within Cytoscape.
 Note: you need to have a Neo4j instance running.
 
 Under 'Apps/cyNeo4j', select the option called 'Connect to instance'. ![image](https://user-images.githubusercontent.com/26277832/192294006-5afce3d5-00e1-4f97-944b-58fa5e497d61.png)
-Fill in your username and personal password, and click 'Connect'
+Fill in your username and personal password, and click 'Connect'.
 
 ## 7. Run your queries 
-(accepted IDs: Wikidata, ChEBI, HMDB).
+Note: accepted IDs for metabolites are Wikidata, ChEBI, and HMDB.
+
+1. Under 'Apps/cyNeo4j', select the option called 'Directed Small Molecules Network'. ![image](https://user-images.githubusercontent.com/26277832/192294652-c3509687-acda-47ba-a009-426185266f30.png)
+Fill in the IDs that you want to retrieve a subnetwork for (examples can be found [here](https://github.com/cyNeo4j/DSMN/tree/main/examples)), one ID per line, and click 'Submit'. The shortest path calculation will now start, and the results visualized in individual Cytoscape networks (note that this might take a few seconds, depending on the size of your input query).
+2. Use the button located right under the main menu bar ![image](https://user-images.githubusercontent.com/26277832/192295417-7ff679bd-e3a0-4abb-b14a-32ce4f30c912.png) Fill in the IDs that you want to retrieve a subnetwork for (examples can be found [here](https://github.com/cyNeo4j/DSMN/tree/main/examples)), one ID per line, and click 'Submit'. The shortest path calculation will now start, and the results visualized in individual Cytoscape networks (note that this might take a few seconds, depending on the size of your input query).
+
+## 8. Results interpretation 
 
 <!---
 
