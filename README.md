@@ -53,7 +53,7 @@ cp -r /PATH/TO/DOWNLOADED_DATA/DSMN_MONTHYEAR.graph.db/graph.db/ /PATH/TO/NEO4J/
 cd ../..
 ./bin/neo4j console
 ```
-Open the remote interface (hhtp://localhost:7474) and login with the password: dsmn.
+Open the remote interface (hhtp://localhost:7474) and login with your personal password.
 
 ## 4. Visualise and interact with data
  Windows+Linux:
