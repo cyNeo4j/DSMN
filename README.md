@@ -70,7 +70,10 @@ The Neo4j server automatically creates a query and displays the results, see ima
 From the Cytoscape App store [here]() or from within Cytoscape.
 
 ## 6. Connect to the Neo4j database 
-(note: you need to have a Neo4j instance running):
+Note: you need to have a Neo4j instance running.
+
+Under 'Apps/cyNeo4j', select the option called 'Connect to instance'. ![image](https://user-images.githubusercontent.com/26277832/192294006-5afce3d5-00e1-4f97-944b-58fa5e497d61.png)
+Fill in your username and personal password, and click 'Connect'
 
 ## 7. Run your queries 
 (accepted IDs: Wikidata, ChEBI, HMDB).
