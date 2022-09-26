@@ -1,6 +1,6 @@
 # Directed Small Molecules Network (DSMN)
 
-[![Java CI with Maven](https://github.com/cyNeo4j/DSMN/blob/main/.github/workflows/maven.yml/badge.svg)](https://github.com/cyNeo4j/DSMN/blob/main/.github/workflows/maven.yml)
+[![Java CI with Maven](https://github.com/cyNeo4j/DSMN/actions/workflows/maven.yml/badge.svg)](https://github.com/cyNeo4j/DSMN/blob/main/.github/workflows/maven.yml)
 
 # Working with the DSMN data in Neo4j:
 ** Note: This documentation was written for Neo4j version: community-3.5.7 (which requires Java 8 to run!).
