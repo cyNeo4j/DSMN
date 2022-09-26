@@ -1,7 +1,7 @@
 
 
 # Quick start:
-- Information on setting up Neo4j (community edition) can be found [here](https://github.com/mkutmon/DirectedSmallMoleculesNetwork/blob/master/docs/0_Neo4j%20(community)%20setup.md).
+- Information on setting up Neo4j (community edition) can be found [here](https://cyneo4j.github.io/DSMN/neo4j).
 
 - Download Cytoscape [here](https://cytoscape.org/download.html).
 
