@@ -1,6 +1,5 @@
 Note: the documentation below was Tested with:
-* Neon 3, Eclipse IDE for Committers, 32 bit, on Windows 7.
-* Eclipse IDE (2019-03), 64 bit, Linux (Ubuntu-Debian). 
+* Eclipse IDE 2022-06 (Java and Web developers), OS Linux (Ubuntu 18.04.6 LTS), JRE JavaSE-11.
 
 # Building with MAVEN:
 
