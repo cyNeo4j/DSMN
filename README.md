@@ -8,7 +8,7 @@ Minimum System Requirements:
 - Cytoscape [3.9.x](https://cytoscape.org/download.html) (automatically comes with a Java 11 download)
 - CyNeo4j [2.x](https://github.com/cyNeo4j/cyNeo4j/releases)
 
-You can find all the documents, scripts [here](https://github.com/mkutmon/DirectedSmallMoleculesNetwork).
+You can find all the documents, scripts [here](https://github.com/cyNeo4j/DSMN).
 
 Visualisation of the DSMN Neo4j database:
 
