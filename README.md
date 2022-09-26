@@ -22,7 +22,7 @@ The download on Windows machines is quite straightforward, for Linux see [here](
 - Shutdown the server by typing Ctrl-C in the console.
 
 ## 2. Download DSMN data
-Find a copy of the graph.db file [here](add link to Zenodo) and **unzip** the file.
+Find a copy of the graph.db file [here](https://doi.org/10.5281/zenodo.7113243) and **unzip** the file.
 
 ## 3. Load pre-existing database:
 
