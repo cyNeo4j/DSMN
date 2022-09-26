@@ -84,6 +84,11 @@ Fill in the IDs that you want to retrieve a subnetwork for (examples can be foun
 
 ## 8. Results interpretation 
 
+The lefthand side menu (1) shows you which networks you have build, the middle top panel (2) shows the network from the shortest path query itself, the right panel (3) and overview of the results for the shortest path query, and the middle bottom panel (4) a table overview of the retrieved information (notice that you can switch here between Node, Edge, and Network Table).
+
+![image](https://user-images.githubusercontent.com/26277832/192297248-a267efd3-f51b-4b0d-8e31-de25372e1d94.png)
+
+
 <!---
 
 ## Working with the DSMN data (Docker)
