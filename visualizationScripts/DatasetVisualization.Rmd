@@ -1,0 +1,78 @@
+---
+title: "DatasetVisualization"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+```{r}
+##Load relevant libraries:
+
+##Using Neo4j in R:
+if(!"neo4r" %in% installed.packages()){install.packages("neo4r")}
+library("neo4r")
+##Documentation, see: https://neo4j-rstats.github.io/user-guide/index.html
+
+#Libraries required for markdown documents:
+if(!"markdown" %in% installed.packages()){install.packages("markdown")}
+if(!"rmarkdown" %in% installed.packages()){install.packages("rmarkdown")}
+library(rstudioapi)
+library(dplyr)
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+
+## Connect to Neo4j instance
+```{r}
+##Connect to Neo4j instance (after starting this already locally:)
+con <- neo4j_api$new(
+  url = "http://localhost:7474",
+  user = "neo4j", 
+  password = "dsmn"
+  )
+
+##Check if connections is successful:
+con$ping()
+
+# Get Neo4J Version for reproducability
+con$get_version()
+
+# Get a table of labels on the Nodes
+con$get_labels()
+```
+
+##Run DSMN shortest path query
+```{r}
+# set your working environment to the location where your current source file is saved into.
+setwd(dirname(rstudioapi::getSourceEditorContext()$path))
+getwd()
+setwd('..')
+getwd()
+##Load the data (example: MTBLS265):
+data <- as.list(read.table("examples/query265-metabolites-wd.txt", header = FALSE, sep = '\n'))
+array <- data[[1]]
+arrayUpdated = paste0('"', array, '"')
+# use cat in this case to see what's "really" there
+# print will show the quotes escaped with backslashes
+cat(arrayUpdated)
+queryArray <- (paste(arrayUpdated, collapse=', '))
+cat(queryArray)
+
+##Define the query: (example)
+#'MATCH (bacon:Person {name:"Kevin Bacon"})-[*1..4]-(hollywood) RETURN DISTINCT hollywood' %>%
+
+item1 <- 'MATCH (n:Metabolite) where n.wdID IN ['
+item2 <- '] WITH collect(n) as nodes UNWIND nodes as n UNWIND nodes as m WITH * WHERE n <> m MATCH p = allShortestPaths( (n:Metabolite)-[:AllInteractions*]->(m:Metabolite) ) RETURN p'
+DSMN_shortest_path <- paste(item1,queryArray,item2)
+
+DSMN_shortest_path %>%
+  call_neo4j(con, type = "graph") %>% 
+   unnest_graph()
+```
+
