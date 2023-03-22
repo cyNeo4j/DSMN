@@ -47,7 +47,7 @@ con$get_version()
 con$get_labels()
 ```
 
-## Run DSMN shortest path query
+## Run DSMN shortest path query for Wikidata IDs:
 ```{r}
 # set your working environment to the location where your current source file is saved into.
 setwd(dirname(rstudioapi::getSourceEditorContext()$path))
@@ -111,6 +111,18 @@ cytoscapeVersionInfo ()
 createNetworkFromDataFrames(nodes, edges, title="trial", collection="MTBLS265")
 
 ##Change data visualization
+#Copy existing visual style to new
+RCy3::copyVisualStyle("Directed","DSMN")
+#set new style as the current style
+RCy3::setVisualStyle("DSMN")
+
+column <- 'value'
+    values <- c ("Metabolite","Reaction", "Protein")
+    shapes <- c ("ELLIPSE","RECTANGLE", "HEXAGON")
+    size <- as.integer(c(100,15,45))
+    setNodeShapeMapping (column, values, shapes, style.name="DSMN")
+    setNodeSizeDefault  (30, style.name="DSMN")
+    setNodeSizeMapping (column, values, size, mapping.type = "d", style.name="DSMN")
 
 ```
 
