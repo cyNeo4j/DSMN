@@ -47,7 +47,7 @@ con$get_version()
 con$get_labels()
 ```
 
-##Run DSMN shortest path query
+## Run DSMN shortest path query
 ```{r}
 # set your working environment to the location where your current source file is saved into.
 setwd(dirname(rstudioapi::getSourceEditorContext()$path))
@@ -64,15 +64,56 @@ cat(arrayUpdated)
 queryArray <- (paste(arrayUpdated, collapse=', '))
 cat(queryArray)
 
-##Define the query: (example)
-#'MATCH (bacon:Person {name:"Kevin Bacon"})-[*1..4]-(hollywood) RETURN DISTINCT hollywood' %>%
-
+##Define the query:
 item1 <- 'MATCH (n:Metabolite) where n.wdID IN ['
 item2 <- '] WITH collect(n) as nodes UNWIND nodes as n UNWIND nodes as m WITH * WHERE n <> m MATCH p = allShortestPaths( (n:Metabolite)-[:AllInteractions*]->(m:Metabolite) ) RETURN p'
 DSMN_shortest_path <- paste(item1,queryArray,item2)
 
+##Perform the query with data in queryArray, store in results as unnested graph (obtaining nodes and edges as a list)
+results <-
 DSMN_shortest_path %>%
   call_neo4j(con, type = "graph") %>% 
    unnest_graph()
+
+##Merge the nodes and edges into one dataframe:
+nodes <- as.data.frame(results[[1]])
+edges <- as.data.frame(results[[2]])
+##Rename 2 columns to preffered Cytoscape naming for loading data
+names(edges)[names(edges) == "startNode"] <- "source"
+names(edges)[names(edges) == "endNode"] <- "target"
 ```
+
+## Save data from Shortest-path as txt file to load into Cytoscape (for manual loading of data into Cytoscape if needed)
+```{r}
+##Load package to trim spaces around values for better macthing in Cytoscape
+if(!"stringr" %in% installed.packages()){install.packages("stringr")}
+library(stringr)
+
+##Write the column names first, then trim all white spaces which could break downstream usage in Cytoscape
+write.table(t(colnames(nodes)), "output/nodes.tsv", sep = "\t", row.names = FALSE, col.names = FALSE, append=FALSE, quote=FALSE)
+write.table(str_trim(apply(nodes, 1, paste, collapse='\t')), "output/nodes.tsv", append = TRUE, sep = "\t", dec = ".",
+            row.names = FALSE, col.names = FALSE, quote=FALSE)
+
+write.table(t(colnames(edges)), "output/edges.tsv", sep = "\t", row.names = FALSE, col.names = FALSE, append=FALSE, quote=FALSE)
+write.table(str_trim(apply(edges, 1, paste, collapse='\t')), "output/edges.tsv", append = TRUE, sep = "\t", dec = ".",
+            row.names = FALSE, col.names = FALSE, quote=FALSE)
+```
+
+##Load the data with Cytoscape App
+```{r}
+if (!requireNamespace("BiocManager", quietly = TRUE)) install.packages("BiocManager")
+if(!"RCy3" %in% installed.packages()) BiocManager::install("RCy3")
+library("RCy3")
+
+cytoscapePing()
+cytoscapeVersionInfo ()
+
+createNetworkFromDataFrames(nodes, edges, title="trial", collection="MTBLS265")
+
+##Change data visualization
+
+```
+
+
+
 
