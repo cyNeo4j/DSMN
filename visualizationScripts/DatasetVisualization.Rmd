@@ -85,7 +85,7 @@ names(edges)[names(edges) == "endNode"] <- "target"
 
 ## Save data from Shortest-path as txt file to load into Cytoscape (for manual loading of data into Cytoscape if needed)
 ```{r}
-##Load package to trim spaces around values for better macthing in Cytoscape
+##Load package to trim spaces around values for better matching in Cytoscape
 if(!"stringr" %in% installed.packages()){install.packages("stringr")}
 library(stringr)
 
@@ -101,14 +101,15 @@ write.table(str_trim(apply(edges, 1, paste, collapse='\t')), "output/edges.tsv",
 
 ##Load the data with Cytoscape App
 ```{r}
-if (!requireNamespace("BiocManager", quietly = TRUE)) install.packages("BiocManager")
+if (!requireNamespace("BiocManager", quietly = TRUE)) install.packages("BiocManager") 
+BiocManager::install(version = '3.17') ##Required for R version 2.3 and higher.
 if(!"RCy3" %in% installed.packages()) BiocManager::install("RCy3")
 library("RCy3")
 
 cytoscapePing()
 cytoscapeVersionInfo ()
 
-createNetworkFromDataFrames(nodes, edges, title="trial", collection="MTBLS265")
+createNetworkFromDataFrames(nodes, edges, title="MTBLS265_dataViz", collection="MTBLS265")
 
 ##Change data visualization
 #Copy existing visual style to new
@@ -116,13 +117,16 @@ RCy3::copyVisualStyle("Directed","DSMN")
 #set new style as the current style
 RCy3::setVisualStyle("DSMN")
 
+##General visualization
 column <- 'value'
     values <- c ("Metabolite","Reaction", "Protein")
     shapes <- c ("ELLIPSE","RECTANGLE", "HEXAGON")
-    size <- as.integer(c(100,15,45))
+    size <- as.integer(c(30,15,45))
     setNodeShapeMapping (column, values, shapes, style.name="DSMN")
-    setNodeSizeDefault  (30, style.name="DSMN")
+    #setNodeSizeDefault  (30, style.name="DSMN")
     setNodeSizeMapping (column, values, size, mapping.type = "d", style.name="DSMN")
+    
+##Set queried nodes to size 100, and as diamond shape    
 
 ```
 

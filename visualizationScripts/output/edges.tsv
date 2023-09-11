@@ -1,4 +1,4 @@
-id	type	startNode	endNode	targetRef	proteinName	disont	intType	count	pathways	pwont	pwRef	pathwayName	intRef	occurences	sourceRef	rheaID
+id	type	source	target	targetRef	proteinName	disont	intType	count	pathways	pwont	pwRef	pathwayName	intRef	occurences	sourceRef	rheaID
 616299	AllInteractions	516586	507473	[NA]	[PGM3]	[NA]	[DirectedInteraction]	1	[WP1785]	[PW_0000432]	[19616933, 10580125, 16807922, 19647993]	[Asparagine N-linked glycosylation]	[12174217]	 1	[NA]	[NA]
 616298	AllInteractions	508711	516586	[NA]	[PGM3]	[NA]	[DirectedInteraction]	1	[WP1785]	[PW_0000432]	[19616933, 10580125, 16807922, 19647993]	[Asparagine N-linked glycosylation]	[12174217]	 1	[NA]	[NA]
 616641	AllInteractions	516765	507572	[NA]	[AGXT2 tetramer]	[NA]	[DirectedInteraction]	1	[WP4042]	[NA]	[4620886, 10989446, 3090932]	[Nucleobase catabolism]	[20018850]	 1	[NA]	[NA]
