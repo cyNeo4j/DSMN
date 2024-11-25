@@ -1,7 +1,21 @@
 cff-version: 1.2.0
-message: If you use this software, please cite it as below.
-type: article
+message: "If you use this software, please cite it as below."
 authors:
+- family-names: Slenter
+  given-names: Denise
+  orcid: https://orcid.org/0000-0001-8449-1318
+- family-names: Kutmon
+  given-names: Martina
+  orcid: https://orcid.org/0000-0002-7699-8191
+- family-names: Willighagen
+  given-names: Egon L.
+  orcid: https://orcid.org/0000-0001-7542-0286
+title: "DSMN Software"
+version: 1.0.0
+url: https://github.com/cyNeo4j/DSMN
+preferred-citation:
+  type: article
+  authors:
   - family-names: Slenter
     given-names: Denise
     orcid: https://orcid.org/0000-0001-8449-1318
@@ -14,16 +28,11 @@ authors:
   - family-names: Willighagen
     given-names: Egon L.
     orcid: https://orcid.org/0000-0001-7542-0286
-doi: 10.1039/D3DD00069A
-identifiers:
-  - type: doi
-    value: 10.1039/D3DD00069A
-  - type: other
-    value: urn:issn:2635-098X
-keywords:
-  - metabolomics
-  - network analysis
-  - biomarker
-title: >-
-  Discovering life's directed metabolic (sub)paths to interpret human
-  biochemical markers using the DSMN tool
+  doi: 10.1039/D3DD00069A
+  journal: Digital Discovery (RSC)
+  title: Discovering life's directed metabolic (sub)paths to interpret human biochemical markers using the DSMN tool
+  year: 2023
+  keywords:
+    - metabolomics
+    - network analysis
+    - biomarker
