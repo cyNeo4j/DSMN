@@ -1,6 +1,6 @@
 # run SPARQL queries for DSMN on new RDF data 
 
-name: Manual workflow
+name: SPARQL query checker (step 1 workflow)
 
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
