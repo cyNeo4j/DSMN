@@ -6,16 +6,13 @@ name: SPARQL query checker (step 1 workflow)
 # or API.
 on:
   workflow_dispatch:
-    # Inputs the workflow accepts.
-    inputs:
-      RDF check:
-        description: 'Install Blazegraph runner'
-        # Default value if no value is explicitly provided
-        #default: 'World'
-        # Input has to be provided for the workflow to run
-        #required: true
-        # The data type of the input
-        #type: string
+  schedule:
+    - cron: "0 0 1 * *"  # Run the workflow on the 1st and 15th day of each month
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+  issues: write
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -26,7 +23,10 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Runs a single command using the runners shell
+    # step 1: check out the rpository
+    - name: Checkout
+      uses: actions/checkout@v4
+    # step 2: install the blazegraph-runner tool
     - name: install blazegraph runner
       run: |
           sudo apt install wget
