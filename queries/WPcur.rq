@@ -16,7 +16,7 @@ PREFIX cur: <http://vocabularies.wikipathways.org/wp#Curation:>
 SELECT DISTINCT ?interaction ?sourceDb ?targetDb ?mimtype ?pathway (str(?titleLit) as ?title) ?sourceCHEBI ?targetDbCHEBI ?sourceHMDB ?targetDbHMDB ?InteractionID 
 WHERE { 
 ?pathway a wp:Pathway ; 
-              wp:organismName \"Homo sapiens\"^^xsd:string ;
+              wp:organismName "Homo sapiens"^^xsd:string ;
                dc:title ?titleLit .
 FILTER (EXISTS {?pathway wp:ontologyTag cur:AnalysisCollection}) . 
 ?interaction dcterms:isPartOf ?pathway .			
