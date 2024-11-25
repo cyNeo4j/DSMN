@@ -1,0 +1,37 @@
+PREFIX gpml: <http://vocabularies.wikipathways.org/gpml#>
+PREFIX wp:      <http://vocabularies.wikipathways.org/wp#>
+PREFIX wprdf:   <http://rdf.wikipathways.org/>
+PREFIX biopax:  <http://www.biopax.org/release/biopax-level3.owl#> 
+PREFIX cas:     <http://identifiers.org/cas/> 
+PREFIX dc:      <http://purl.org/dc/elements/1.1/> 
+PREFIX dcterms: <http://purl.org/dc/terms/> 
+PREFIX foaf:    <http://xmlns.com/foaf/0.1/>  
+PREFIX ncbigene: <http://identifiers.org/ncbigene/> 
+PREFIX pubmed:  <http://www.ncbi.nlm.nih.gov/pubmed/> 
+PREFIX rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos:    <http://www.w3.org/2004/02/skos/core#>
+PREFIX xsd:     <http://www.w3.org/2001/XMLSchema#> 
+PREFIX cur: <http://vocabularies.wikipathways.org/wp#Curation:>
+SELECT DISTINCT ?interaction ?sourceDb ?targetDb ?mimtype ?pathway (str(?titleLit) as ?title) ?sourceCHEBI ?targetDbCHEBI ?sourceHMDB ?targetDbHMDB ?InteractionID 
+WHERE { 
+?pathway a wp:Pathway ; 
+              wp:organismName \"Homo sapiens\"^^xsd:string ;
+               dc:title ?titleLit .
+FILTER (EXISTS {?pathway wp:ontologyTag cur:AnalysisCollection}) . 
+?interaction dcterms:isPartOf ?pathway .			
+?interaction a wp:DirectedInteraction .  
+?interaction wp:source ?source . 
+?interaction wp:target ?target .  
+OPTIONAL{?interaction a ?mimtype}.
+VALUES ?mimtype {wp:ComplexBinding wp:Conversion wp:Inhibition wp:Catalysis wp:Stimulation wp:TranscriptionTranslation wp:DirectedInteraction} . 
+?source a wp:Metabolite .
+?source wp:bdbWikidata ?sourceDb . 
+OPTIONAL{?source wp:bdbChEBI ?sourceCHEBI}. 
+OPTIONAL{?source wp:bdbHmdb ?sourceHMDB}.
+?target a wp:Metabolite .
+?target wp:bdbWikidata ?targetDb .
+OPTIONAL{?target wp:bdbChEBI ?targetDbCHEBI}.
+OPTIONAL{?target wp:bdbHmdb ?targetDbHMDB}.
+OPTIONAL{?interaction wp:bdbRhea ?InteractionID} .
+}
