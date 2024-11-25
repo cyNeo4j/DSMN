@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: Please cite the following works when using this software.
+type: software
+authors:
+  - family-names: Slenter
+    given-names: Denise
+  - family-names: Kutmon
+    given-names: Martina
+  - family-names: Evelo
+    given-names: Chris T.
+  - family-names: Willighagen
+    given-names: Egon L.
+doi: 10.1039/D3DD00069A
+identifiers:
+  - type: doi
+    value: 10.1039/D3DD00069A
+  - type: other
+    value: urn:issn:2635-098X
+keywords:
+  - metabolomics
+  - network analysis
+  - biomarker
+title: >-
+  Discovering life's directed metabolic (sub)paths to interpret human
+  biochemical markers using the DSMN tool
